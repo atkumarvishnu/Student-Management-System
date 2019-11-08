@@ -1,10 +1,9 @@
 # PHPproject
-My Mini Project
-This is a website which can efficiently manage database of students applying for scholarship.
-The code is simple but it is efficient to manage a large number of students.
-
+# Mini Project
+# This is a website which can efficiently manage database of students applying for scholarship.
 
 PHP Snippets of the code:
+**
 <?php
 	session_start();
 
@@ -34,7 +33,7 @@ PHP Snippets of the code:
 	endif;
 	}
 ?>
-
+**
 
 
 
