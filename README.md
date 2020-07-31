@@ -1,39 +1,39 @@
-# PHPproject
-# Mini Project
-# This is a website which can efficiently manage database of students applying for scholarship.
+# Student Management System
+# Made with PHP
+# This is a dashboard which can efficiently manage data of students applying for scholarship.
 
-PHP Snippets of the code:
-**
-<?php
-	session_start();
+	PHP Snippets of the code:
+	**
+	<?php
+		session_start();
 
-	if( isset($_SESSION['admin_id1']) ){
-		header("Location: /SMS/admindashboard.php");
-	}
+		if( isset($_SESSION['admin_id1']) ){
+			header("Location: /SMS/admindashboard.php");
+		}
 
-	require 'database.php';
-	if(isset($_POST['admin_submit'])){
-	if(!empty($_POST['admin_id']) && !empty($_POST['password2'])):
-	$records = $conn->prepare('SELECT * FROM admin WHERE admin_id = :admin_id1');
-	$records->bindParam(':admin_id1', $_POST['admin_id']);
-	$records->execute();
-	$results = $records->fetch(PDO::FETCH_ASSOC);
-	$message = '';
+		require 'database.php';
+		if(isset($_POST['admin_submit'])){
+		if(!empty($_POST['admin_id']) && !empty($_POST['password2'])):
+		$records = $conn->prepare('SELECT * FROM admin WHERE admin_id = :admin_id1');
+		$records->bindParam(':admin_id1', $_POST['admin_id']);
+		$records->execute();
+		$results = $records->fetch(PDO::FETCH_ASSOC);
+		$message = '';
 
-	if(count($results) > 0 && ($_POST['password2']==$results['admin_pass'])){
-		$_SESSION['admin_id1'] = $results['admin_id'];
-		$_SESSION['admin_email1'] = $results['admin_email'];
-		$message = 'Welcome Admin!';
-		header("Location: /SMS/admindashboard.php");
-		echo $message;
-	} else {
-		$message = 'Sorry, those credentials do not match';
-		echo $message;
-	}
-	endif;
-	}
-?>
-**
+		if(count($results) > 0 && ($_POST['password2']==$results['admin_pass'])){
+			$_SESSION['admin_id1'] = $results['admin_id'];
+			$_SESSION['admin_email1'] = $results['admin_email'];
+			$message = 'Welcome Admin!';
+			header("Location: /SMS/admindashboard.php");
+			echo $message;
+		} else {
+			$message = 'Sorry, those credentials do not match';
+			echo $message;
+		}
+		endif;
+		}
+	?>
+	**
 
 
 
